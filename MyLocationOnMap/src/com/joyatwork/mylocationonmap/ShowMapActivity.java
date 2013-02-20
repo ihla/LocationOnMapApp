@@ -5,6 +5,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -12,6 +13,7 @@ import android.view.Menu;
 
 public class ShowMapActivity extends Activity {
 	static final LatLng BLAVA_CASTLE = new LatLng(48.14174, 17.099971);
+	static final LatLng SENICA_SWEAT_HOME = new LatLng(48.678967, 17.365417);
 	private GoogleMap map;
 	
 	@Override
@@ -21,8 +23,12 @@ public class ShowMapActivity extends Activity {
 		
 		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 		if (map != null) {
-			map.addMarker(new MarkerOptions().position(BLAVA_CASTLE).title("Blava Castle"));
-			map.moveCamera(CameraUpdateFactory.newLatLngZoom(BLAVA_CASTLE, 15));
+			map.addMarker(new MarkerOptions()
+				.position(SENICA_SWEAT_HOME)
+				.title("Senica, Robotnicka ul.")
+				.snippet("Sweat Home")
+				.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_maps_indicator_current_position)));
+			map.moveCamera(CameraUpdateFactory.newLatLngZoom(SENICA_SWEAT_HOME, 15));
 			map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
 		}
 		else {

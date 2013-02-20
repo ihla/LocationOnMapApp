@@ -35,9 +35,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+	<!-- meta-data
+        android:name="com.google.android.maps.v2.API_KEY"
+        android:value="AIzaSyDT999mwTZTMPLuKq-VimVH8kCdPFxh2uU" /> PC -->
 	<meta-data
         android:name="com.google.android.maps.v2.API_KEY"
-        android:value="AIzaSyDT999mwTZTMPLuKq-VimVH8kCdPFxh2uU" />
-    </application>
+        android:value="AIzaSyBym7RuVbHTu9Ix3L3HlhLJrXOPhPFQ7Z0" /> <!-- MAC -->
+	</application>
 
 </manifest>
