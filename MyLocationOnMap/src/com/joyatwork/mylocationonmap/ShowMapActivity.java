@@ -1,9 +1,11 @@
 package com.joyatwork.mylocationonmap;
 
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -22,20 +24,37 @@ public class ShowMapActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_map);
 		
+		
 		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-		//map = ((MapView) findViewById(R.id.map)).getMap();
+		
+		/*
+		MapView mapView = (MapView) findViewById(R.id.map);
+		mapView.onCreate(savedInstanceState);
+
+		try {
+		     MapsInitializer.initialize(this);
+		 } catch (GooglePlayServicesNotAvailableException e) {
+		     e.printStackTrace();
+		 }
+
+		map = mapView.getMap();
+		*/
+		
+		/* */
 		if (map != null) {
 			map.addMarker(new MarkerOptions()
 				.position(SENICA_SWEAT_HOME)
 				.title("Senica, Robotnicka ul.")
 				.snippet("Sweat Home")
-				.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_maps_indicator_current_position)));
+				.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_maps_indicator_current_position))
+				);
 			map.moveCamera(CameraUpdateFactory.newLatLngZoom(SENICA_SWEAT_HOME, 15));
 			map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
 		}
 		else {
 			// display warning or something
 		}
+		/* */
 			
 	}
 
