@@ -1,22 +1,5 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ShowMapActivity" >
-
-    <fragment
-	    android:id="@+id/map"
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent"
-	    class="com.google.android.gms.maps.MapFragment" />
-	<!-- 
-    <com.google.android.gms.maps.MapView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-    	xmlns:map="http://schemas.android.com/apk/res-auto"
-	    android:id="@+id/map"
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent"
-	    />  	
-	-->
-
-</RelativeLayout>
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.gms.maps.MapView xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/map"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"/>
