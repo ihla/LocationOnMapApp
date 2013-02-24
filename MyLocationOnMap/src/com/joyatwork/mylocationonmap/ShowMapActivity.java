@@ -12,6 +12,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import android.app.Activity;
 import android.os.Bundle;
 
+/*
+ * This shows how to create a simple activity with a raw MapView and add a customized marker to it.
+ * This requires forwarding all the important lifecycle methods onto MapView.
+ */
 public class ShowMapActivity extends Activity {
 	
 	private MapView mapView;
