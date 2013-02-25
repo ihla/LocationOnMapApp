@@ -3,10 +3,10 @@ package com.example.mylocationonmapfragment;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import android.os.Bundle;
 
 /**
@@ -90,11 +90,15 @@ public class MainActivity extends android.support.v4.app.FragmentActivity {
      */
     private void setUpMap() {
     	map.getUiSettings().setZoomControlsEnabled(false); //zooming by gestures not buttons
-        map.addMarker(new MarkerOptions().position(HOME).title("Sweat Home"));
+
+    	map.addMarker(new MarkerOptions().position(HOME).title("Sweat Home")
+        		.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_maps_indicator_current_position)));
         map.addMarker(new MarkerOptions().position(NEAREST_INTERSECTION).title("Sturova krizovatka"));
         map.addMarker(new MarkerOptions().position(STUROVA_END).title("Sturova koniec"));
         map.addMarker(new MarkerOptions().position(BOTTOVA_START).title("Bottova zaciatok"));
-        map.animateCamera(CameraUpdateFactory.newCameraPosition(SENICA_SWEAT_HOME), 4000, null);
+        
+        map.animateCamera(CameraUpdateFactory.newCameraPosition(SENICA_SWEAT_HOME), 2000, null);
+
 
     }
 }
