@@ -22,10 +22,20 @@ public class MainActivity extends android.support.v4.app.FragmentActivity {
     private GoogleMap map;
     
     private static final LatLng HOME = new LatLng(48.678967, 17.365417);
+    /**
+     * demo of geonames services
+     */
+    //http://api.geonames.org/findNearestIntersectionOSM?lat=48.678967&lng=17.365417&username=demo
+    private static final LatLng NEAREST_INTERSECTION = new LatLng(48.679365, 17.363247);
+    
+    //http://api.geonames.org/findNearbyStreetsOSM?lat=48.678967&lng=17.365417&username=demo
+    private static final LatLng STUROVA_END = new LatLng(48.676318, 17.365105);
+    private static final LatLng BOTTOVA_START = new LatLng(48.677368, 17.366263);
+    
     private static final CameraPosition SENICA_SWEAT_HOME =
             new CameraPosition.Builder()
     				.target(HOME)
-                    .zoom(19f)
+                    .zoom(16.5f)
                     .bearing(0)
                     .tilt(65)
                     .build();
@@ -81,6 +91,9 @@ public class MainActivity extends android.support.v4.app.FragmentActivity {
     private void setUpMap() {
     	map.getUiSettings().setZoomControlsEnabled(false); //zooming by gestures not buttons
         map.addMarker(new MarkerOptions().position(HOME).title("Sweat Home"));
+        map.addMarker(new MarkerOptions().position(NEAREST_INTERSECTION).title("Sturova krizovatka"));
+        map.addMarker(new MarkerOptions().position(STUROVA_END).title("Sturova koniec"));
+        map.addMarker(new MarkerOptions().position(BOTTOVA_START).title("Bottova zaciatok"));
         map.animateCamera(CameraUpdateFactory.newCameraPosition(SENICA_SWEAT_HOME), 4000, null);
 
     }
